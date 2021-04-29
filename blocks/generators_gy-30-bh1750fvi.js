@@ -3,6 +3,8 @@ Blockly.JavaScript['bh1750'] = function(block) {
   var text_mbh1750add = block.getFieldValue('BH1750ADD');
   var value_bh1750sda = Blockly.JavaScript.valueToCode(block, 'BH1750SDA', Blockly.JavaScript.ORDER_ATOMIC);
   var value_bh1750scl = Blockly.JavaScript.valueToCode(block, 'BH1750SCL', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_bh1750_i2c_port = block.getFieldValue('BH1750_I2C_PORT');
+  var dropdown_bh1750_mode = block.getFieldValue('BH1750_MODE');
   // TODO: Assemble JavaScript into code variable.
     var code =
       `
@@ -12,8 +14,8 @@ Blockly.JavaScript['bh1750'] = function(block) {
 #VARIABLE
 BH1750 ${variable_bh17501}(${text_mbh1750add});
 #END
-Wire.begin(${value_bh1750sda},${value_bh1750scl});\n
-${variable_bh17501}.begin();
+//${dropdown_bh1750_i2c_port}.begin(${value_bh1750sda},${value_bh1750scl});\n
+${variable_bh17501}.begin(BH1750::${dropdown_bh1750_mode},${text_mbh1750add},&${dropdown_bh1750_i2c_port});
 \n
 `;
   return code;
