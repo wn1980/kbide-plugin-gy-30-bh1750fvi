@@ -20,10 +20,19 @@ ${variable_bh17501}.begin(BH1750::${dropdown_bh1750_mode},${text_mbh1750add},&${
 `;
   return code;
 };
+
 Blockly.JavaScript['bh1750read'] = function(block) {
   var variable_bh17501 = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('bh17501'), Blockly.Variables.NAME_TYPE);
   // TODO: Assemble JavaScript into code variable.
   var code = `${variable_bh17501}.readLightLevel()`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['bh1750read_klux'] = function(block) {
+  var variable_bh17501k = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('bh17501'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `${variable_bh17501k}.readLightLevel()/1000.`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };

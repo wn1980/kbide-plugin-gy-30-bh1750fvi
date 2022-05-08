@@ -26,11 +26,25 @@ Blockly.Blocks['bh1750'] = {
  this.setHelpUrl("");
   }
 };
+
 Blockly.Blocks['bh1750read'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldVariable("bh17501", null,["Plugin.bh1750"], ["Plugin.bh1750"]), "bh17501")
-        .appendField("readLightLevel");
+        .appendField("readLightLevel (lux)");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['bh1750read_klux'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldVariable("bh17501", null,["Plugin.bh1750"], ["Plugin.bh1750"]), "bh17501")
+        .appendField("readLightLevel (kLux)");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
     

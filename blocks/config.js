@@ -17,6 +17,8 @@ module.exports = [
                         </value>
                      </block>
                      <block type="bh1750read">
+                     </block>
+                     <block type="bh1750read_klux">
                      </block>`
             }
         ]
